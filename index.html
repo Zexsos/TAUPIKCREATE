@@ -1,0 +1,234 @@
+<html>
+  <meta charset="UTF-8" /><meta
+    content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5"
+    name="viewport"
+  /><meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  /><link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+  <link
+    href="https://valentine.likeadream.repl.co/style.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <script src="https://valentine.likeadream.repl.co/script.js"></script>
+  <head>
+    <!-- 
+This code was made by Rayya R
+Blog: https://sinkronin.com
+Instagram: rayyarrr
+TikTok: rayyarr_
+-->
+  </head>
+  <body>
+    <div id="bodyblur">
+      <img
+        src="https://wallpaperaccess.com/full/6578574.jpg"
+        width="100%"
+        height="100%"
+      />
+    </div>
+
+    <!-- Isi Konten -->
+    <div id="Content">
+      <div class="image">
+        <img
+          src="https://c.tenor.com/KnWD3xyzkV4AAAAM/happy-birthday-gifts.gif"
+          width="130px"
+          height="130px"
+        />
+      </div>
+      <!--<div id="sp1"></div>-->
+      <div>
+        <blockquote>
+          <p id="text"></p>
+          <p id="text2"></p>
+          <p id="text3"></p>
+        </blockquote>
+      </div>
+    </div>
+
+    <script>
+      function nonFo() {
+        document.getElementById("idfoto").style.display = "none";
+      }
+      function showFo() {
+        document.getElementById("idfoto").style.display = "block";
+      }
+      function nonDiv() {
+        document.getElementById("Content").style.display = "none";
+      }
+      function showDiv() {
+        ketik();
+        document.getElementById("Content").style.opacity = "1";
+        document.getElementById("Content").style.margin = "0";
+        document.getElementById("Content").style.animation = "kont 3s infinite";
+      }
+
+      var i = 0,
+        text;
+      text = "";
+      var u = 0,
+        text2;
+      text2 = "";
+      var o = 0,
+        text3;
+      text3 = "";
+
+      function ketik() {
+        if (i < text.length) {
+          document.getElementById("text").innerHTML += text.charAt(i);
+          i++;
+          setTimeout(ketik, 100);
+        }
+        if (i == text.length) {
+          document.getElementById("text").innerHTML = text + emotnama;
+          ketikk();
+        }
+      }
+      function ketikk() {
+        if (u < text2.length) {
+          document.getElementById("text2").innerHTML += text2.charAt(u);
+          u++;
+          setTimeout(ketikk, 200);
+        }
+        if (u == text2.length) {
+          ketikkk();
+        }
+      }
+      function ketikkk() {
+        if (o < text3.length) {
+          document.getElementById("text3").innerHTML += text3.charAt(o);
+          o++;
+          setTimeout(ketikkk, 300);
+        }
+        if (o == text3.length) {
+          document.getElementById("text3").innerHTML = text3 + emotnama2;
+        }
+      }
+    </script>
+
+    <script type="text/javascript">
+      //Audio Link MP3
+      function play() {
+        var audio = new Audio(
+          "https://hey.likeadream.repl.co/KandaJanganMarah.mp3"
+        );
+        audio.play();
+      }
+
+      const swals = Swal.mixin({
+        allowOutsideClick: false,
+        cancelButtonColor: "#FF0040",
+      });
+      const swalsy = Swal.mixin({
+        confirmButtonText: "Iya",
+        allowOutsideClick: false,
+      });
+      const swalst = Swal.mixin({
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+      });
+
+      async function mulaitanya() {
+        var { isConfirmed: tanyawal } = await swals.fire({
+          title: `Mau isi nama dulu atau langsung aja?`,
+          imageUrl:
+            "https://i.pinimg.com/originals/d1/0c/3d/d10c3d213be6893235d97ae768db8c07.gif",
+          imageWidth: 120,
+          imageHeight: 120,
+          confirmButtonText: "Isi Nama",
+          cancelButtonText: "Langsung Aja",
+          allowOutsideClick: false,
+          showCancelButton: true,
+        });
+        if (tanyawal) {
+          mulai();
+          play();
+        } else {
+          nama = "Tth Cantik";
+          pilihwarna();
+          play();
+        }
+      }
+
+      async function mulai() {
+        var { value: nama } = await swals.fire({
+          title: "Masukin nama kamu",
+          input: "text",
+          imageUrl: "https://c.tenor.com/ooWeeqeK6pMAAAAM/scared-shiver.gif",
+          imageWidth: 120,
+          imageHeight: 120,
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+        if (nama && nama.length < 11) {
+          window.nama = nama;
+          pilihwarna();
+        } else {
+          await swals.fire(
+            "Ups!",
+            "Nama tidak boleh kosong atau lebih dari 10 karakter, ya!"
+          );
+          mulai();
+        }
+      }
+
+      async function pilihwarna() {
+        text = "Dear, " + nama + ".    ";
+        emotnama = "&#10084;";
+        emotnama2 = "";
+        var { isConfirmed: tanyadua } = await swals.fire({
+          title: nama + ` mau pilih warna apa nih?`,
+          imageUrl: "https://c.tenor.com/GOYRQva4UeoAAAAM/anime-dance.gif",
+          imageWidth: 120,
+          imageHeight: 120,
+          confirmButtonText: "Ungu",
+          cancelButtonText: "Merah",
+          allowOutsideClick: false,
+          showCancelButton: true,
+        });
+        if (tanyadua) {
+          kata1();
+          kuis();
+        } else {
+          kata2();
+          kuis();
+        }
+      }
+      function kata1() {
+        text2 =
+          "Selamat ulang tahun, tth. Semoga selalu diberi panjang umur, sehat selalu, dan dipermudah segala urusan serta apa yang dicita-citakan bisa tercapai.Aamiin " +
+          nama +
+          "!       ";
+        text3 =
+          "(Usia hanyalah kasus pikiran atas materi. Jika kamu tidak keberatan, itu tidak masalah " +
+          "!)       ";
+      }
+      function kata2() {
+        text2 =
+          "Saat semua orang memiliki satu hari kasih sayang untuk ia rayakan, aku punya setiap hari untuk menyayangimu meski tak ku ucapkan.       ";
+        text3 = "selamat ulang tahun, " + nama + "!       ";
+        document.getElementById("text3").style = "font-weight:700";
+      }
+      async function kuis() {
+        await swalst.fire({
+          title: "Hai, " + nama + "!",
+          imageUrl: "https://c.tenor.com/YuhULxyntR8AAAAC/anime-pout.gif",
+          imageWidth: 120,
+          imageHeight: 120,
+        });
+        showDiv();
+      }
+      mulaitanya();
+    </script>
+  </body>
+</html>
